@@ -8,14 +8,22 @@
 // to testing react components.
 
 // So you can use JSX (which transpiles down to React.createElement):
-// import React from 'react'
+import React from "react";
 //
 // So you can render the component for testing:
-// import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 //
 // So you can create a react element for the component you're testing:
-// import ItemList from '../item-list'
+import ItemList from "../item-list";
 
+test("title", () => {
+  // arrange
+  const container = document.createElement("div");
+  // act
+  ReactDOM.render(<ItemList items={[]} />, container);
+  // assert
+  expect(container.textContent).toMatch("no items");
+});
 // and here's an outline example of your first test:
 //   Create a "container" to render your component into (tip: use document.createElement('div'))
 //
@@ -36,8 +44,8 @@
 /*
 http://ws.kcd.im/?ws=Testing&e=basic%20react%20test&em=
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
-  expect(submitted).toBe(true)
-})
+test.skip("I submitted my elaboration and feedback", () => {
+  const submitted = false; // change this when you've submitted!
+  expect(submitted).toBe(true);
+});
 ////////////////////////////////
